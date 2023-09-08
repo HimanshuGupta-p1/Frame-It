@@ -1,0 +1,4 @@
+# PS C:\Users\hp\todo-demo\backend> venv\Scripts\activate.ps1
+# (venv) PS C:\Users\hp\todo-demo\backend> uvicorn main:app --port 8005 --reload
+fastapi==0.103.1
+uvicorn==0.23.2
