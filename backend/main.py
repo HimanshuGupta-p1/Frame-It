@@ -1,6 +1,21 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 todos = [{'title': 'class_start', 'desc': '9.05'},
 {'title': 'class_end', 'desc': '9.55'},
 {'title': 'class_duration', 'desc': '100min'}]
@@ -53,3 +68,6 @@ def updateTodo(title: str, desc: str):
             todo['desc'] = desc
             return {'message': 'todo updated', 'data': todo}
     return {'message': 'could not update todo'}
+
+
+
